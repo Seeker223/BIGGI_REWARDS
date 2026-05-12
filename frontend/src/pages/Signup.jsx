@@ -34,6 +34,7 @@ export default function Signup() {
     if (!name) return setError("Name is required.");
     if (!email) return setError("Email is required.");
     if (!emailOk) return setError("Please enter a valid email address.");
+    if (!referralCode) return setError("Referral code is required.");
     if (!password) return setError("Password is required.");
     if (password.length < 6) return setError("Password must be at least 6 characters.");
 
@@ -49,7 +50,7 @@ export default function Signup() {
   };
 
   return (
-    <AuthSplitLayout title="Create account" subtitle="Name, email, referral code and password.">
+    <AuthSplitLayout title="Create account" subtitle="Name, email, referral code, and password.">
       <form className="form" onSubmit={submit}>
         <div className="field">
           <label>Name</label>
@@ -70,7 +71,7 @@ export default function Signup() {
           />
         </div>
         <div className="field">
-          <label>Referral code (optional)</label>
+          <label>Referral code</label>
           <input
             value={form.referralCode}
             onChange={(e) => setForm((p) => ({ ...p, referralCode: e.target.value }))}
@@ -101,4 +102,3 @@ export default function Signup() {
     </AuthSplitLayout>
   );
 }
-
